@@ -9,10 +9,5 @@ import androidx.navigation.NavHostController
 fun DishesMenuScreen(
     dishesController: NavHostController,
     mainController: NavHostController,
-    icon: String,
-    name: String?,
-    price: String?
 ) {
-    val context = LocalContext.current
-    Toast.makeText(context, name.toString(), Toast.LENGTH_SHORT).show()
 }

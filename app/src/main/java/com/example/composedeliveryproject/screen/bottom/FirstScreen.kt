@@ -12,25 +12,10 @@ import com.example.composedeliveryproject.navigation.DishesScr
 @Composable
 fun FirstScreen(mainController: NavHostController, bottomController: NavHostController) {
     val dishesController = rememberNavController()
-    NavHost(navController = dishesController, startDestination = "dishes" ) {
+        NavHost(navController = dishesController, startDestination = DishesScr.DishesScreen.route ) {
         composable(DishesScr.DishesScreen.route) { DishesScreen(dishesController)}
-        composable(DishesScr.DishesMenuScreen.route,
-            arguments = listOf(
-                navArgument("icon") {
-                    type = NavType.StringType
-                },
-                navArgument("name") {
-                    type = NavType.StringType
-                },
-                navArgument("price") {
-                    type = NavType.StringType
-                }
-            )
-        ) {
-            val icon = it.arguments?.getString("icon").toString()
-            val name = it.arguments?.getString("name").toString()
-            val price = it.arguments?.getString("price").toString()
-            DishesMenuScreen(dishesController, mainController, icon, name, price)
+        composable(DishesScr.DishesMenuScreen.route) {
+            DishesMenuScreen(dishesController, mainController)
         }
     }
 }
